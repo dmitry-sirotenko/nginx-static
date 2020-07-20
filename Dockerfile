@@ -1,5 +1,7 @@
 FROM alpine:3.12
 
+LABEL maintainer="Dmitry Sirotenko <dmitry.sirotenko@playrix.com>"
+
 ENV NGINX_VERSION 1.18.0
 ENV NGX_BROTLI_COMMIT 25f86f0bac1101b6512135eac5f93c49c63609e3
 
@@ -13,6 +15,7 @@ RUN set -x \
     		linux-headers \
     		curl \
     		zlib-dev \
+    		openssl-dev \
     && apk add --no-cache --virtual .brotli-build-deps \
             autoconf \
             libtool \
@@ -48,6 +51,7 @@ RUN set -x \
             --with-file-aio \
             --with-threads \
             --with-http_gzip_static_module \
+            --with-http_ssl_module \
             --without-http_access_module \
             --without-http_auth_basic_module \
             --without-http_autoindex_module \
@@ -107,7 +111,7 @@ RUN set -x \
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+EXPOSE 80 443
 
 STOPSIGNAL SIGTERM
 

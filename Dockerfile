@@ -56,7 +56,6 @@ RUN set -x \
             --without-http_auth_basic_module \
             --without-http_autoindex_module \
             --without-http_browser_module \
-            --without-http_charset_module \
             --without-http_empty_gif_module \
             --without-http_fastcgi_module \
             --without-http_geo_module \

@@ -1,0 +1,12 @@
+.DS_Store
+*~
+._*
+.nfs*
+
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

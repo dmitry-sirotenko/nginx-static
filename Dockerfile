@@ -16,6 +16,7 @@ RUN set -x \
     		curl \
     		zlib-dev \
     		openssl-dev \
+            pcre-dev \
     && apk add --no-cache --virtual .brotli-build-deps \
             autoconf \
             libtool \
@@ -65,7 +66,6 @@ RUN set -x \
             --without-http_memcached_module \
             --without-http_proxy_module \
             --without-http_referer_module \
-            --without-http_rewrite_module \
             --without-http_scgi_module \
             --without-http_ssi_module \
             --without-http_split_clients_module \
